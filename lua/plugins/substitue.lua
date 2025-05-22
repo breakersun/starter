@@ -5,6 +5,11 @@ return {
     require("substitute").setup({})
   end,
   keys = {
-    { "<leader>r", mode = { "n", "x" }, "<cmd>lua require('substitute').operator()<cr>" },
+    {
+      "<leader>r",
+      mode = { "n", "x" },
+      "<cmd>lua require('substitute').operator()<cr>",
+      desc = "Replace with Clipboard",
+    },
   },
 }
