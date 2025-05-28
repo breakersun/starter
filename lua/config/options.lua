@@ -14,3 +14,5 @@ vim.o.shellredir = '2>&1 | %{ "$_" } | Out-File %s; exit $LastExitCode'
 vim.o.shellpipe = '2>&1 | %{ "$_" } | Tee-Object %s; exit $LastExitCode'
 vim.o.shellquote = ""
 vim.o.shellxquote = ""
+
+vim.opt.relativenumber = false
