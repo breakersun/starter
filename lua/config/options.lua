@@ -16,3 +16,5 @@ vim.o.shellquote = ""
 vim.o.shellxquote = ""
 
 vim.opt.relativenumber = false
+
+vim.g.autoformat = false
