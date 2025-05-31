@@ -18,3 +18,6 @@ vim.o.shellxquote = ""
 vim.opt.relativenumber = false
 
 vim.g.autoformat = false
+
+-- for better diff-view
+vim.opt.diffopt="internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram"
