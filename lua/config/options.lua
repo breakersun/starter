@@ -21,3 +21,5 @@ vim.g.autoformat = false
 
 -- for better diff-view
 vim.opt.diffopt="internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram"
+
+vim.opt.clipboard = "unnamedplus"
