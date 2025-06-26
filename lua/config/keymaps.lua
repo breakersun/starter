@@ -14,3 +14,5 @@ vim.keymap.set("n", "dd", smart_dd, { noremap = true, expr = true })
 
 vim.keymap.set('x', '/', '<C-\\><C-n>`</\\%V', { desc = 'Search forward within visual selection' })
 vim.keymap.set('x', '?', '<C-\\><C-n>`>?\\%V', { desc = 'Search backward within visual selection' })
+vim.keymap.set('n', '<Space>qq', '<Cmd>q<cr>', { desc = 'Simple Quit' })
+vim.keymap.set('n', '<Space>qQ', '<Cmd>qa<cr>', { desc = 'Quit All' })
