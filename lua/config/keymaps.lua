@@ -16,5 +16,6 @@ vim.keymap.set('x', '/', '<C-\\><C-n>`</\\%V', { desc = 'Search forward within v
 vim.keymap.set('x', '?', '<C-\\><C-n>`>?\\%V', { desc = 'Search backward within visual selection' })
 vim.keymap.set('n', '<Space>qq', '<Cmd>q<cr>', { desc = 'Simple Quit' })
 vim.keymap.set('n', '<Space>qQ', '<Cmd>qa<cr>', { desc = 'Quit All' })
+vim.keymap.set('n', '<Space>ch', '<Cmd>ClangdSwitchSourceHeader<cr>', { desc = 'Swap Header/Impl File'})
 
 vim.keymap.set('n', 'gp', '`[v`]')
