@@ -5,9 +5,9 @@ return {
     require("substitute").setup({})
   end,
   keys = {
-    { 's', mode = {'n'}, "<Cmd>lua require('substitute').operator()<Cr>", desc = 'Replace'},
-    { 's', mode = {'x'}, "<Cmd>lua require('substitute').visual()<Cr>", desc = 'Replace'},
-    { 'S', mode = {'n', 'x'}, "<Cmd>lua require('substitute').eol()<Cr>", desc = 'Replace EOL'},
-    { 'ss', mode = {'n', 'x'}, "<Cmd>lua require('substitute').line()<Cr>", desc = 'Replace Line'},
+    { 's',  mode = {'n'}, function() require('substitute').operator() end, desc  = 'Replace'},
+    { 's',  mode = {'x'}, function() require('substitute').visual() end,   desc  = 'Replace'},
+    { 'S',  mode = {'n', 'x'}, function() require('substitute').eol() end, desc  = 'Replace EOL'},
+    { 'ss', mode = {'n', 'x'}, function() require('substitute').line() end, desc = 'Replace Line'},
   },
 }
