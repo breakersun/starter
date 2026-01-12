@@ -1,0 +1,22 @@
+{
+	"beamer": {
+		"prefix": "beamer",
+		"body": [
+			"---",
+			"title: $1",
+			"author: sunlong@tcl.com",
+			"theme: CambridgeUS",
+			"colortheme: dolphin",
+			"fonttheme: professionalfonts",
+			"aspectratio: 169",
+			"section-titles : false",
+			"navigation : horizontal",
+			"CJKmainfont: FangSong",
+			"# scoop install pandoc miktex",
+			"# open mixtex console, update all packages",
+			"# pandoc --pdf-engine=xelatex -t beamer --slide-level=3 --incremental renode-training.md -o renode.pdf",
+			"---"
+		],
+		"description": "Beamer Markdown Header"
+	},
+}
