@@ -3,16 +3,21 @@ return {
   opts = {
     completion = { list = { selection = { preselect = false, auto_insert = true } } }, 
     keymap = {
-      preset = "default",
-      ['<Tab>'] = {
-        function(cmp)
-          if cmp.snippet_active() then return cmp.accept()
-          else return cmp.select_and_accept() end
-        end,
-        'snippet_forward',
-        'fallback'
+      preset      = "enter",
+      ["<Tab>"] = {
+          function(cmp)
+              return cmp.select_next()
+          end,
+          "snippet_forward",
+          "fallback",
       },
-      ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+      ["<S-Tab>"] = {
+          function(cmp)
+              return cmp.select_prev()
+          end,
+          "snippet_backward",
+          "fallback",
+      },
     },
   },
 }
