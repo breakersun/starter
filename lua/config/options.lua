@@ -23,3 +23,5 @@ vim.g.autoformat = false
 vim.opt.diffopt="internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram"
 
 vim.opt.clipboard = "unnamedplus"
+
+vim.opt.conceallevel = 0
