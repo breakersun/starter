@@ -25,3 +25,5 @@ vim.opt.diffopt="internal,filler,closeoff,indent-heuristic,linematch:60,algorith
 vim.opt.clipboard = "unnamedplus"
 
 vim.opt.conceallevel = 0
+
+vim.diagnostic.disable()
