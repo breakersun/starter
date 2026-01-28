@@ -1,5 +1,9 @@
 return {
   -- please install global manually: scoop install global
+  --
+  -- sometimes build database failed for no reason
+  -- you might need to delete below 3 files
+  --GPATH GRTAGS GTAGS
   "dhananjaylatkar/cscope_maps.nvim",
   dependencies = { "folke/snacks.nvim" },
   opts = {
