@@ -23,6 +23,31 @@ vim.g.autoformat = false
 vim.opt.diffopt="internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram"
 
 vim.opt.clipboard = "unnamedplus"
+local function is_wsl()
+  local version_file = io.open("/proc/version", "rb")
+  if version_file ~= nil and string.find(version_file:read("*a"), "microsoft") then
+    version_file:close()
+    return true
+  end
+  return false
+end
+-- WSL Clipboard support
+if is_wsl then
+  -- This is NeoVim's recommended way to solve clipboard sharing if you use WSL
+  -- See: https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
+  vim.g.clipboard = {
+    name = "wsl-clip",
+    copy = {
+      ["+"] = "clip.exe",
+      ["*"] = "clip.exe",
+    },
+    paste = {
+      ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    },
+    cache_enabled = 0,
+  }
+end
 
 vim.opt.conceallevel = 0
 
