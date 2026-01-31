@@ -1,11 +1,16 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
+--
+local is_windows = vim.fn.has("win32") == 1
+local is_linux = vim.fn.has("unix") == 1
 
-if vim.fn.executable("pwsh") == 1 then
-  vim.o.shell = "pwsh"
-else
-  vim.o.shell = "powershell"
+if is_windows then 
+  if vim.fn.executable("pwsh") == 1 then
+    vim.o.shell = "pwsh"
+  else
+    vim.o.shell = "powershell"
+  end
 end
 
  vim.o.shellcmdflag =
