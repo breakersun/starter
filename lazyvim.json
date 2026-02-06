@@ -4,7 +4,8 @@
     "lazyvim.plugins.extras.coding.luasnip",
     "lazyvim.plugins.extras.coding.neogen",
     "lazyvim.plugins.extras.lang.clangd",
-    "lazyvim.plugins.extras.lang.dotnet"
+    "lazyvim.plugins.extras.lang.dotnet",
+    "lazyvim.plugins.extras.lang.markdown"
   ],
   "install_version": 8,
   "news": {
