@@ -53,7 +53,7 @@ if is_wsl() then
     },
     cache_enabled = 0,
   }
-elseif is_linux then
+elseif is_ssh then
   vim.g.clipboard = {
     name = 'OSC 52',
     copy = {
@@ -61,8 +61,8 @@ elseif is_linux then
       ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
     },
     paste = {
-      ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-      ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+      ['+'] = function() return vim.fn.getreg('+') end,
+      ['*'] = function() return vim.fn.getreg('*') end,
     },
   }
 end

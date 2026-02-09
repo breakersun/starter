@@ -1,7 +1,7 @@
 return {
   "gbprod/substitute.nvim",
   -- event = "BufReadPost",
-  event = "VeryLazy",
+  -- event = "VeryLazy",
   config = function()
     require("substitute").setup({})
   end,
