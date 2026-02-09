@@ -4,6 +4,16 @@
 --
 local is_windows = vim.fn.has("win32") == 1
 local is_linux = vim.fn.has("unix") == 1
+local is_ssh = os.getenv("SSH_CLIENT") ~= nil or os.getenv("SSH_TTY") ~= nil
+
+local function is_wsl()
+  local version_file = io.open("/proc/version", "rb")
+  if version_file ~= nil and string.find(version_file:read("*a"), "microsoft") then
+    version_file:close()
+    return true
+  end
+  return false
+end
 
 if is_windows then 
   if vim.fn.executable("pwsh") == 1 then
@@ -28,15 +38,6 @@ vim.g.autoformat = false
 vim.opt.diffopt="internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram"
 
 vim.opt.clipboard = "unnamedplus"
-local function is_wsl()
-  local version_file = io.open("/proc/version", "rb")
-  if version_file ~= nil and string.find(version_file:read("*a"), "microsoft") then
-    version_file:close()
-    return true
-  end
-  return false
-end
--- WSL Clipboard support
 if is_wsl() then
   -- This is NeoVim's recommended way to solve clipboard sharing if you use WSL
   -- See: https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
@@ -51,6 +52,18 @@ if is_wsl() then
       ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
     },
     cache_enabled = 0,
+  }
+elseif is_linux then
+  vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = {
+      ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+      ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+    },
+    paste = {
+      ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+      ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+    },
   }
 end
 
