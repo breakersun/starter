@@ -48,6 +48,8 @@ return {
                 ["D"] = "diff",
                 ["y"] = "yank_relative_cwd",
                 ["Y"] = "yank_relative_home",
+                ["<a-h>"] = false,
+                ["<a-i>"] = false,
               },
             },
           },
